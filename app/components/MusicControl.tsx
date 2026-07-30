@@ -2,11 +2,15 @@
 
 import { RefObject, useEffect, useState } from "react";
 
-export function MusicControl({ audioRef }: { audioRef: RefObject<HTMLAudioElement | null> }) {
+export function MusicControl({ audioRef, autoStart = false }: { audioRef: RefObject<HTMLAudioElement | null>; autoStart?: boolean }) {
   const [isOn, setIsOn] = useState(false);
   const [volume, setVolume] = useState(0.2);
   const [available, setAvailable] = useState(true);
   useEffect(() => { if (audioRef.current) audioRef.current.volume = volume; }, [audioRef, volume]);
+  useEffect(() => {
+    if (!autoStart || !audioRef.current) return;
+    void audioRef.current.play().then(() => setIsOn(true)).catch(() => setIsOn(false));
+  }, [audioRef, autoStart]);
   const toggle = async () => {
     const audio = audioRef.current;
     if (!audio) return;

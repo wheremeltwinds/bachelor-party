@@ -38,6 +38,10 @@ export default function Home() {
   }, []);
 
   const openInvitation = () => {
+    if (audioRef.current) {
+      audioRef.current.volume = 0.2;
+      void audioRef.current.play().catch(() => undefined);
+    }
     setInvitationOpen(true);
     window.setTimeout(() => {
       document.getElementById("invitation")?.scrollIntoView({ behavior: "smooth" });
@@ -64,7 +68,7 @@ export default function Home() {
               <span>ЧЁРНЫЕ ОПЕРАЦИИ / 09</span>
             </a>
             <div className="topbar-status"><span className="status-dot" /> ЗАЩИЩЁННЫЙ КАНАЛ</div>
-            <MusicControl audioRef={audioRef} />
+            <MusicControl audioRef={audioRef} autoStart={invitationOpen} />
           </div>
         </header>
 
