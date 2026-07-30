@@ -12,7 +12,6 @@ import { TerminalIntro } from "./components/TerminalIntro";
 import { eventConfig } from "./config/eventConfig";
 
 export default function Home() {
-  const [introComplete, setIntroComplete] = useState(false);
   const [invitationOpen, setInvitationOpen] = useState(false);
   const [easterEgg, setEasterEgg] = useState(false);
   const [showTop, setShowTop] = useState(false);
@@ -36,7 +35,6 @@ export default function Home() {
   }, []);
 
   const openInvitation = () => {
-    setIntroComplete(true);
     setInvitationOpen(true);
     window.setTimeout(() => {
       document.getElementById("invitation")?.scrollIntoView({ behavior: "smooth" });
@@ -45,17 +43,14 @@ export default function Home() {
 
   const restartIntro = () => {
     setInvitationOpen(false);
-    setIntroComplete(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <main className="site-shell">
       <TerminalIntro
-        complete={introComplete}
-        onComplete={() => setIntroComplete(true)}
+        isOpen={invitationOpen}
         onOpen={openInvitation}
-        onSkip={openInvitation}
       />
 
       <div className={`invitation-layer ${invitationOpen ? "is-open" : ""}`}>

@@ -15,29 +15,24 @@ const introLines = [
   "Launching...",
 ];
 
-type Props = { complete: boolean; onComplete: () => void; onOpen: () => void; onSkip: () => void };
+type Props = { isOpen: boolean; onOpen: () => void };
 
-export function TerminalIntro({ complete, onComplete, onOpen, onSkip }: Props) {
+export function TerminalIntro({ isOpen, onOpen }: Props) {
   const [visibleCount, setVisibleCount] = useState(0);
-  const typing = !complete && visibleCount < introLines.length;
+  const introFinished = visibleCount >= introLines.length;
+  const typing = !introFinished;
 
   useEffect(() => {
-    if (complete || visibleCount >= introLines.length) {
-      if (!complete) onComplete();
-      return;
-    }
+    if (introFinished) return;
     const delay = visibleCount === 0 ? 420 : 260 + Math.random() * 520;
     const timer = window.setTimeout(() => setVisibleCount((count) => count + 1), delay);
     return () => window.clearTimeout(timer);
-  }, [complete, onComplete, visibleCount]);
+  }, [introFinished, visibleCount]);
 
-  const skip = () => {
-    setVisibleCount(introLines.length);
-    onSkip();
-  };
+  const skip = () => setVisibleCount(introLines.length);
 
   return (
-    <section className={`intro-screen ${complete ? "intro-finished" : ""}`} aria-label="Загрузка секретной операции">
+    <section className={`intro-screen ${isOpen ? "intro-finished" : ""}`} aria-label="Загрузка секретной операции">
       <div className="intro-noise" />
       <div className="intro-inner">
         <div className="intro-brand"><span className="brand-mark">⌁</span><span>BLACK OPS SYSTEM</span><span className="intro-version">v.09.12</span></div>
@@ -49,8 +44,7 @@ export function TerminalIntro({ complete, onComplete, onOpen, onSkip }: Props) {
           </div>
           <div className="intro-actions">
             {visibleCount >= introLines.length && <button className="primary-button" onClick={onOpen}>[ OPEN CLASSIFIED INVITATION ] <span>→</span></button>}
-            {!complete && <button className="text-button" onClick={skip}>SKIP INTRO <span>↗</span></button>}
-            {complete && <button className="text-button" onClick={onOpen}>OPEN DOSSIER <span>↗</span></button>}
+            {!introFinished && <button className="text-button" onClick={skip}>SKIP INTRO <span>↗</span></button>}
           </div>
         </div>
         <div className="intro-foot"><span>ALL SYSTEMS NOMINAL</span><span>DO NOT SHARE THIS LINK</span><span>● LIVE</span></div>
