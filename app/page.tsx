@@ -11,6 +11,9 @@ import { MusicControl } from "./components/MusicControl";
 import { TerminalIntro } from "./components/TerminalIntro";
 import { eventConfig } from "./config/eventConfig";
 
+const eventDateLabel = `${eventConfig.eventDate.slice(8, 10)}.${eventConfig.eventDate.slice(5, 7)}.${eventConfig.eventDate.slice(2, 4)}`;
+const eventTimeLabel = eventConfig.eventDate.slice(11, 16);
+
 export default function Home() {
   const [invitationOpen, setInvitationOpen] = useState(false);
   const [easterEgg, setEasterEgg] = useState(false);
@@ -109,7 +112,7 @@ export default function Home() {
             <Countdown />
             <p className="countdown-note">До последнего официально свободного вечера.</p>
           </div>
-          <div className="countdown-side"><span>ВРЕМЕННОЕ ОКНО</span><strong>12.09.26</strong><small>18:00 / МЕСТНОЕ ВРЕМЯ</small></div>
+          <div className="countdown-side"><span>ВРЕМЕННОЕ ОКНО</span><strong>{eventDateLabel}</strong><small>{eventTimeLabel} / МЕСТНОЕ ВРЕМЯ</small></div>
         </section>
 
         <section className="section-wrap timeline-section" id="timeline">
