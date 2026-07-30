@@ -5,7 +5,7 @@ export type ScheduleItem = {
 };
 
 export const eventConfig = {
-  groomName: "ИМЯ ЖЕНИХА",
+  groomName: "Павел Азаренко",
   eventDate: "2026-09-12T18:00:00+03:00",
   meetingPlace: "СЕКРЕТНЫЙ АНГАР 09",
   address: "ул. Секретная, 7, Вильнюс",
