@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "LAST NIGHT OF FREEDOM / Classified Invitation",
+  title: "Последний вечер свободы / Секретное приглашение",
   description: "Секретная миссия перед семейной жизнью. Доступ только для жениха.",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };

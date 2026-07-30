@@ -35,11 +35,11 @@ export function TerminalIntro({ isOpen, onOpen }: Props) {
     <section className={`intro-screen ${isOpen ? "intro-finished" : ""}`} aria-label="Загрузка секретной операции">
       <div className="intro-noise" />
       <div className="intro-inner">
-        <div className="intro-brand"><span className="brand-mark">⌁</span><span>СИСТЕМА BLACK OPS</span><span className="intro-version">v.09.12</span></div>
+        <div className="intro-brand"><span className="brand-mark">⌁</span><span>СИСТЕМА ЧЁРНЫХ ОПЕРАЦИЙ</span><span className="intro-version">v.09.12</span></div>
         <div className="intro-terminal">
           <div className="terminal-topline"><span>ROOT@BLACKOPS:~</span><span>TTY / 001</span></div>
           <div className="intro-lines" aria-live="polite">
-            {introLines.slice(0, visibleCount).map((line, index) => <p key={line} className={line.includes("ACCESS") ? "access-line" : ""}><span className="line-index">{String(index + 1).padStart(2, "0")}</span>{line}</p>)}
+            {introLines.slice(0, visibleCount).map((line, index) => <p key={line} className={line.includes("ДОСТУП") ? "access-line" : ""}><span className="line-index">{String(index + 1).padStart(2, "0")}</span>{line}</p>)}
             {typing && <span className="cursor" aria-hidden="true">▋</span>}
           </div>
           <div className="intro-actions">
