@@ -8,7 +8,7 @@ export const eventConfig = {
   groomName: "Павел Азаренко",
   eventDate: "2026-08-15T11:00:00+03:00",
   meetingPlace: "СЕКРЕТНЫЙ АНГАР 09",
-  address: "ул. Секретная, 7, Вильнюс",
+  address: "Budiniškių gatvė 6, Vilnius",
   coordinates: { lat: 54.730713, lng: 25.211364 },
   mapUrl: "https://www.google.com/maps/search/?api=1&query=54.730713,25.211364",
   musicUrl: "/music/background.mp3",
