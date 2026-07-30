@@ -19,11 +19,10 @@ type Props = { complete: boolean; onComplete: () => void; onOpen: () => void; on
 
 export function TerminalIntro({ complete, onComplete, onOpen, onSkip }: Props) {
   const [visibleCount, setVisibleCount] = useState(0);
-  const [typing, setTyping] = useState(true);
+  const typing = !complete && visibleCount < introLines.length;
 
   useEffect(() => {
     if (complete || visibleCount >= introLines.length) {
-      setTyping(false);
       if (!complete) onComplete();
       return;
     }
@@ -34,8 +33,7 @@ export function TerminalIntro({ complete, onComplete, onOpen, onSkip }: Props) {
 
   const skip = () => {
     setVisibleCount(introLines.length);
-    setTyping(false);
-    onComplete();
+    onSkip();
   };
 
   return (
