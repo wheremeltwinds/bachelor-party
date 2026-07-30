@@ -5,7 +5,11 @@ export function InvitationDossier() {
     <div className="dossier-card">
       <div className="dossier-header"><span>СЕКРЕТНОЕ ДЕЛО</span><span>№ BP-0912</span></div>
       <div className="dossier-content">
-        <div className="dossier-stamp">ТОЛЬКО<br />ЖЕНИХУ</div>
+        <div className="dossier-photo">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={eventConfig.groomPhotoUrl} alt={`Фото ${eventConfig.groomName}`} />
+          <span>ТОЛЬКО ЖЕНИХУ</span>
+        </div>
         <div className="dossier-details">
           <div><span>ОПЕРАЦИЯ</span><strong>ПОСЛЕДНИЙ ВЕЧЕР СВОБОДЫ</strong></div>
           <div><span>ОБЪЕКТ</span><strong>{eventConfig.groomName}</strong></div>

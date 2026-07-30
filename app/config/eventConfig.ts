@@ -6,6 +6,7 @@ export type ScheduleItem = {
 
 export const eventConfig = {
   groomName: "Павел Азаренко",
+  groomPhotoUrl: "/images/groom.jpg",
   eventDate: "2026-08-15T11:00:00+03:00",
   meetingPlace: "СЕКРЕТНЫЙ АНГАР 09",
   address: "Budiniškių gatvė 6, Vilnius",
