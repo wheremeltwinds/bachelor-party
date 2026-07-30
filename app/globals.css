@@ -27,7 +27,7 @@ button { cursor: pointer; }
 .cursor { color: var(--green); animation: blink 1s steps(2) infinite; }
 .intro-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin-top: 24px; }
 .primary-button, .secondary-button, .calendar-button, .accept-button, .sound-button, .text-button, .scroll-cta, .restart-button { border: 0; background: none; color: var(--green); }
-.primary-button { padding: 14px 17px; border: 1px solid var(--green-dim); background: rgba(157,252,101,.07); font-size: 12px; letter-spacing: .08em; transition: .2s ease; }
+.primary-button { max-width: 100%; padding: 14px 17px; border: 1px solid var(--green-dim); background: rgba(157,252,101,.07); font-size: 12px; letter-spacing: .08em; line-height: 1.4; overflow-wrap: anywhere; transition: .2s ease; }
 .primary-button:hover, .accept-button:hover { background: var(--green); color: #0a110b; box-shadow: 0 0 24px rgba(157,252,101,.25); }
 .primary-button span, .accept-button span { padding-left: 10px; font-size: 18px; }
 .text-button, .scroll-cta, .restart-button { padding: 5px 0; color: #90a79a; font-size: 10px; letter-spacing: .12em; }
